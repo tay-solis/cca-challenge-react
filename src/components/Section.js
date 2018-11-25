@@ -6,6 +6,7 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 
+// This component renders all of the information about a section from the section catalog and handles registration and dropping of that section. 
 class Section extends Component{
   constructor(){
     super()
@@ -53,6 +54,7 @@ class Section extends Component{
     });
   }
 
+  //When a student clicks the "Register this Section" button, the component will make a call to the database to drop that section and update the amount of students registered in the section. It will also allow the student to access the "drop a section" button.
   register(){
     axios.get(`${rootURL}sections/${this.state.id}/register`)
     .then((res)=>{
@@ -62,6 +64,7 @@ class Section extends Component{
           registered: res.data[0].registered,
           isRegistered: true
         });
+        //Then, it will call the register function of the parent, which will update the student section list.
         return this.props.register(res.data[0]);
       } else {
         console.log('an error occurred');
@@ -69,6 +72,7 @@ class Section extends Component{
     })
   }
 
+  // When a student hits the "Drop this Section" button, the component will make a call to the database to drop this section. It will also call the parent drop function to remove the section from the student section list. 
   drop(){
     axios.get(`${rootURL}sections/${this.state.id}/drop`)
     .then((res)=>{
@@ -89,7 +93,7 @@ class Section extends Component{
     return(
       <article className="section" id={this.state.id}>
         <h2 className="title">{this.state.section_id} | {this.state.section_title}</h2>
-        
+
         <div className="classLocation">
           <span className="department">{this.state.department}</span> |
           <span className="room"> {this.state.room}</span>
@@ -98,8 +102,10 @@ class Section extends Component{
         <p>Spots taken: <span className="studentNumbers">{this.state.registered} / {this.state.capacity}</span> </p>
 
         <div className="registrationButtons">
+        {/* If the student is not registered and the course is not full, the student can register the section. If it is full, the student will nto be able to access the register course button. */}
           {this.state.registered === this.state.capacity &&
           <p>This class is full.</p>}
+          
           {!this.state.isRegistered && this.state.capacity !== this.state.registered &&
             <button onClick={this.register}> Register for this Class </button>
           }

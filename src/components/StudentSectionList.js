@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import RegisteredSection from './RegisteredSection'
 
+
+//This component receives an array of registered classes and renders them as RegisteredSection components. It also displays the number of classes a student is registered in.
 class StudentSectionList extends Component{
   constructor(){
     super();
@@ -9,6 +11,7 @@ class StudentSectionList extends Component{
       classesRegistered: 0
     }
   }
+
 
   componentWillReceiveProps(){
     let sections = this.props.sections;
@@ -25,6 +28,7 @@ class StudentSectionList extends Component{
       sections
     })
   }
+  
   render(){
     return(
       <aside className="studentSectionList">

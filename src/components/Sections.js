@@ -9,7 +9,7 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 
-
+//This component renders the course catalog as well as the registered courses list. 
 class Sections extends Component{
     constructor(){
         super()
@@ -21,6 +21,7 @@ class Sections extends Component{
         this.drop = this.drop.bind(this)
     }
 
+    // Since the component has already updated itself, the course will simply be added to the registered section.
     register(data){
       let registeredSections = this.state.registeredSections;
       registeredSections.push(data);
@@ -29,6 +30,7 @@ class Sections extends Component{
       })
     }
 
+    // The component will remove the course from the registered sections.
     drop(data){
       let registeredSections = this.state.registeredSections;
       for (let i = 0; i < registeredSections.length; i++){
