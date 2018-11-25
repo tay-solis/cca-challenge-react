@@ -88,7 +88,8 @@ class Section extends Component{
   render(){
     return(
       <article className="section" id={this.state.id}>
-        <h2 className="title">{this.state.section_id}: {this.state.section_title}</h2>
+        <h2 className="title">{this.state.section_id} | {this.state.section_title}</h2>
+        
         <div className="classLocation">
           <span className="department">{this.state.department}</span> |
           <span className="room"> {this.state.room}</span>

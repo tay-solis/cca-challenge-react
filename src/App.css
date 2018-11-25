@@ -1,4 +1,4 @@
-
+/* TYPOGRAPHY */
 h1, h2, h3, p {
   margin: 0;
   font-weight: 400;
@@ -50,7 +50,7 @@ button {
   border-radius: 5px;
   color: #FFF;
   background-color: #00b8b0;
-  padding: .5em;
+  padding: .4em;
   font-size: inherit;
 }
 

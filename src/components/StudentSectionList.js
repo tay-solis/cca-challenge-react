@@ -35,10 +35,6 @@ class StudentSectionList extends Component{
             key={i}
             id={section.id}
             section_title= {section.section_title}
-            section_id= {section.section_id}
-            department= {section.department}
-            instructor= {section.instructor}
-            room= {section.room}
             />))}
       </aside>
     )

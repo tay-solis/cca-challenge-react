@@ -1,14 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class RegisteredSection extends Component{
-  render(){
+const RegisteredSection = (props) => {
     return(
       <div className="registedSection">
-        <h3>{this.props.section_title}</h3>
-        
+        <h3>{props.section_title}</h3>
       </div>
     )
-  }
+
 }
 
 export default RegisteredSection
