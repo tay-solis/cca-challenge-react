@@ -5,6 +5,7 @@ class RegisteredSection extends Component{
     return(
       <div className="registedSection">
         <h3>{this.props.section_title}</h3>
+        
       </div>
     )
   }

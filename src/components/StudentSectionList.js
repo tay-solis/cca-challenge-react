@@ -11,12 +11,8 @@ class StudentSectionList extends Component{
   }
 
   componentWillReceiveProps(){
-    let sections = this.state.sections;
-    let classesRegistered = this.state.classesRegistered;
-    for (let i = 0; i < this.props.sections.length; i++){
-      classesRegistered++;
-      sections.push(this.props.sections[i])
-    }
+    let sections = this.props.sections;
+    let classesRegistered = this.props.sections.length;
     this.setState({
       sections,
       classesRegistered
@@ -24,10 +20,7 @@ class StudentSectionList extends Component{
   }
 
   componentDidMount(){
-    let sections = this.state.sections;
-    for (let i = 0; i < this.props.sections.length; i++){
-      sections.push(this.props.sections[i])
-    }
+    let sections = this.props.sections;
     this.setState({
       sections
     })

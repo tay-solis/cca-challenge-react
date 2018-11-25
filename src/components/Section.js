@@ -22,6 +22,7 @@ class Section extends Component{
 
     }
     this.register = this.register.bind(this)
+    this.drop = this.drop.bind(this)
   }
 
   componentDidMount(){
@@ -68,14 +69,32 @@ class Section extends Component{
     })
   }
 
+  drop(){
+    axios.get(`${rootURL}sections/${this.state.id}/drop`)
+    .then((res)=>{
+      if(res.status === 200){
+        console.log('registered successfully')
+        this.setState({
+          registered: res.data[0].registered,
+          isRegistered: false
+        });
+        return this.props.drop(res.data[0]);
+      } else {
+        console.log('an error occurred');
+      }
+    })
+  }
+
   render(){
     return(
       <article className="section" id={this.state.id}>
         <h2 className="title">{this.state.section_id}: {this.state.section_title}</h2>
-        <p className="department">{this.state.department}</p>
-        <p className="room"> {this.state.room}</p>
+        <div className="classLocation">
+          <span className="department">{this.state.department}</span> |
+          <span className="room"> {this.state.room}</span>
+        </div>
         <p className="instructor"> {this.state.instructor}</p>
-        <p className="studentNumbers">Spots taken: {this.state.registered} / {this.state.capacity} </p>
+        <p>Spots taken: <span className="studentNumbers">{this.state.registered} / {this.state.capacity}</span> </p>
 
         <div className="registrationButtons">
           {this.state.registered === this.state.capacity &&

@@ -1,32 +1,79 @@
-.App {
-  text-align: center;
+
+h1, h2, h3, p {
+  margin: 0;
+  font-weight: 400;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+p {
+  margin: .25em 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* NAVBAR */
+nav {
+  height: 75px;
+  background-color: #000;
+  color: #FFF;
+  text-transform: uppercase;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0 3em;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  height: 30px;
+  margin-right: 2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* COURSES */
+.courseListing {
+  padding: 0 3em;
+  margin-top: 75px;
+}
+
+/* SECTION LIST */
+.sections {
+  width: 75%;
+}
+
+.section {
+  width: 80%;
+  padding: 2em;
+  border-bottom: 1px solid #666a78;
+}
+
+button {
+  border: 0;
+  border-radius: 5px;
+  color: #FFF;
+  background-color: #00b8b0;
+  padding: .5em;
+  font-size: inherit;
+}
+
+.classLocation {
+  font-weight: 700;
+  font-size: .80em;
+  color: #666a78;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+
+.studentNumbers {
+  color: #00b8b0;
+}
+
+/* REGISTERED LIST */
+.studentSectionList {
+  position: fixed;
+  right: 0;
+  padding: 2em;
+  top: 75px;
+  background-color: #00b8b0;
+  color: #FFF;
+  height: 100vh;
+  width: 25%;
 }
